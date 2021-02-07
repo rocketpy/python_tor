@@ -24,6 +24,7 @@ print(r)
 
 #  customization privoxy
 """
-forward-socks4a / localhost:9050 .  # try 9150
-forward-socks5 / localhost:9050 .   # try 9150
+forward-socks4a / localhost:9150 .  # try 9050  or 9151
+forward-socks5 / localhost:9150 .   # try 9050  or 9151
 """
+ 
