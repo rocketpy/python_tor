@@ -47,6 +47,15 @@ import urllib2
 import socket
 import socks
 
-socks.set_default_proxy(socks.SOCKS5, "myprivateproxy.net",port=9050)
-socket.socket = socks.socksocket res=urllib2.urlopen(url).read() 
+socks.set_default_proxy(socks.SOCKS5, "myprivateproxy.net", port=9050)
+socket.socket = socks.socksocket
+res = urllib2.urlopen(url).read() 
+"""
+
+"""
+# SOCKS5 proxy for HTTP/HTTPS 
+proxies = { 'http' : "socks5://myproxy:9191", 'https' : "socks5://myproxy:9191" }
+# headers 
+headers = { } url='http://icanhazip.com/'  # return our IP
+res = requests.get(url, headers=headers, proxies=proxies) 
 """
