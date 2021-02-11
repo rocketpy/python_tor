@@ -13,3 +13,14 @@ profile.update_preferences()
 driver = webdriver.Firefox(firefox_profile= profile, executable_path=r'C:\Utility\BrowserDrivers\geckodriver.exe')
 driver.get("http://check.torproject.org")
 
+"""
+The default location for Firefox’s profile folder differs depending on some platform.
+The default locations are:
+
+Windows 7, 8.1, and 10: C:\Users\<username>\AppData\Roaming\Mozilla\Firefox\Profiles\xxxxxxxx.default
+
+Mac OS X El Capitan: Users/<username>/Library/Application Support/Firefox/Profiles/xxxxxxxx.default
+
+Linux: /home/<username>/.mozilla/firefox/xxxxxxxx.default
+"""
+ 
