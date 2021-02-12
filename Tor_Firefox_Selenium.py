@@ -24,7 +24,8 @@ Mac OS X El Capitan: Users/<username>/Library/Application Support/Firefox/Profil
 Linux: /home/<username>/.mozilla/firefox/xxxxxxxx.default
 """
  
- """
+"""
+#  this example can get an error "proxyConnectFailure"
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
@@ -33,6 +34,26 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 binary = FirefoxBinary(r"C:\Users\Admin\Desktop\Tor Browser\Browser\firefox.exe")
 profile = FirefoxProfile(r"C:\Users\Admin\Desktop\Tor Browser\Browser\TorBrowser\Data\Browser\profile.default")
 
+proxyIP = "127.0.0.1"
+proxyPort = 9150
+
+proxy_settings = {"network.proxy.type": 1,
+                  "network.proxy.socks": proxyIP,
+                  "network.proxy.socks_port": proxyPort,
+                  "network.proxy.socks_remote_dns": True,
+                  }
+                  
+driver = webdriver.Firefox(firefox_binary=binary, proxy=proxy_settings)
+
+
+def main(driver):
+    # http://check.torproject.org
+    driver.get("https://www...")    
+    # driver.save_screenshot("file_name.png")
+
+
+if __name__ == '__main__':
+    main(driver)
 
  """
  
