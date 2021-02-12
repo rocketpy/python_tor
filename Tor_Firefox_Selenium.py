@@ -24,3 +24,15 @@ Mac OS X El Capitan: Users/<username>/Library/Application Support/Firefox/Profil
 Linux: /home/<username>/.mozilla/firefox/xxxxxxxx.default
 """
  
+ """
+from selenium import webdriver
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+
+
+binary = FirefoxBinary(r"C:\Users\Admin\Desktop\Tor Browser\Browser\firefox.exe")
+profile = FirefoxProfile(r"C:\Users\Admin\Desktop\Tor Browser\Browser\TorBrowser\Data\Browser\profile.default")
+
+
+ """
+ 
