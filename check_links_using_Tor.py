@@ -8,11 +8,11 @@ import subprocess
 
 
 class TorActivation:
-    def __ini__(self):
+    def __init__(self):
         pass
 
     
-    def StartTor(self):
+    def start_tor(self):
         subprocess.Popen([f"{os.getcwd()}\\Tor\\tor.exe"])
         time.sleep(10)
         print("Tor Proxy is started !")
@@ -25,12 +25,11 @@ class TorActivation:
                             'https': 'socks5h://127.0.0.1:9050'  # 9150
                            }
             print("Proxy setup is done")
-    
         except:
             print("Tor is not activated, please run the program again !")
             
             
-    def check(self,onion,save):
+    def check(self, onion, save):
         print()
         try:
             data = requests.get(f"http://{onion}", proxies=self.proxies)
@@ -45,7 +44,7 @@ class TorActivation:
             print(f"Status Code : {status}")
 
         if save == True:
-            w = open("Status.txt","a")
+            w = open("Status.txt", "a")
             if status == 200:
                 w.write(f"http://{onion} : Active")
             else:
@@ -55,9 +54,8 @@ class TorActivation:
         return 
     
 if __name__ == "__main__":
-    
     run = TorActivation()
-    run.StartTor()
+    run.start_tor()
     run.proxy_build()
     while True:
         print("1. Single Url Checking")
@@ -66,13 +64,13 @@ if __name__ == "__main__":
         option = input("Enter your option: ")
         if str(option) == '1':
             onion=input("Enter the url: ")
-            run.check(onion,False)
+            run.check(onion, False)
         elif str(option) == '2':
             filename = input("Enter the txt filename: ")
             f = open(filename, "a")
             f.readlines()
             for x in f:
-                x=x.rstrip("\n")
+                x = x.rstrip("\n")
                 run.check(x, True)
             f.close()
         elif option == '3':
