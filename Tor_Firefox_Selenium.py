@@ -13,6 +13,8 @@ profile.update_preferences()
 driver = webdriver.Firefox(firefox_profile= profile, executable_path=r'C:\Utility\BrowserDrivers\geckodriver.exe')
 driver.get("http://check.torproject.org")
 
+# for checking IP:  url = 'https://httpbin.org/get'
+
 """
 The default location for Firefox’s profile folder differs depending on some platform.
 The default locations are:
@@ -25,16 +27,23 @@ Linux: /home/<username>/.mozilla/firefox/xxxxxxxx.default
 """
 
 #  Base frame (checked)
+import os
 from selenium import webdriver
+from selenium.webdriver.common.proxy import Proxy, ProxyType
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
+
+#  torexe = os.popen(r'C:\Users\...\Tor\tor.exe')
 
 binary = FirefoxBinary(r"C:\Program Files (x86)\TorBrowser\Browser\firefox.exe")
 profile = FirefoxProfile(r"C:\Program Files (x86)\TorBrowser\Browser\TorBrowser\Data\Browser\profile.default")
 
 driver = webdriver.Firefox(profile, binary)
-driver.get("https://...")
+#  driver.get("https://www.whatsmyip.org")
+#  url = 'https://httpbin.org/get'
+driver.get("https://www...")
  
 """
 #  this example can get an error "proxyConnectFailure"
