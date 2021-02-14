@@ -23,6 +23,18 @@ Mac OS X El Capitan: Users/<username>/Library/Application Support/Firefox/Profil
 
 Linux: /home/<username>/.mozilla/firefox/xxxxxxxx.default
 """
+
+#  Base frame (checked)
+from selenium import webdriver
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+
+
+binary = FirefoxBinary(r"C:\Program Files (x86)\TorBrowser\Browser\firefox.exe")
+profile = FirefoxProfile(r"C:\Program Files (x86)\TorBrowser\Browser\TorBrowser\Data\Browser\profile.default")
+
+driver = webdriver.Firefox(profile, binary)
+driver.get("https://...")
  
 """
 #  this example can get an error "proxyConnectFailure"
